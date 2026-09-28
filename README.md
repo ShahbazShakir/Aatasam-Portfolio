@@ -1,4 +1,4 @@
-# Aatasam Qazi: portfolio site
+# Aatasam Farooq: portfolio site
 
 Single page site in plain HTML, CSS and JavaScript. No build step.
 

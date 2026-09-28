@@ -1,4 +1,4 @@
-/* Aatasam Qazi portfolio: nav, Calendly popup, lightbox, scroll reveal, audit form */
+/* Aatasam Farooq portfolio: nav, Calendly popup, lightbox, scroll reveal, audit form */
 (function () {
   "use strict";
 
