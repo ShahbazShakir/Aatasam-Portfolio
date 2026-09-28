@@ -82,6 +82,7 @@
   var lb = document.getElementById("lightbox");
   var lbImg = lb.querySelector("img");
   var lbCap = lb.querySelector("figcaption");
+  var lbCount = lb.querySelector(".lightbox__count");
   var lbClose = lb.querySelector(".lightbox__close");
   var group = [];
   var index = 0;
@@ -93,6 +94,7 @@
     lbImg.src = item.dataset.src;
     lbImg.alt = item.querySelector("img").alt;
     lbCap.textContent = item.dataset.caption || "";
+    lbCount.textContent = group.length > 1 ? (index + 1) + " of " + group.length : "";
   }
 
   function openLightbox(trigger) {
@@ -167,7 +169,7 @@
     }
 
     if (form.action.indexOf("YOUR_FORM_ID") !== -1) {
-      setStatus("This form isn't connected yet. Please email aatasamqazi@gmail.com for now.", "error");
+      setStatus("This form isn't connected yet. Please email aatasamq@gmail.com for now.", "error");
       return;
     }
 
@@ -186,7 +188,7 @@
         setStatus("Thanks! I'll review your clinic and get back to you soon.", "success");
       })
       .catch(function () {
-        setStatus("Something went wrong. Please email aatasamqazi@gmail.com instead.", "error");
+        setStatus("Something went wrong. Please email aatasamq@gmail.com instead.", "error");
       })
       .then(function () {
         submitBtn.disabled = false;

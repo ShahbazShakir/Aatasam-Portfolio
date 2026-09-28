@@ -7,7 +7,7 @@ index.html      page content
 styles.css      all styling
 script.js       nav, Calendly popup, lightbox, scroll animations, audit form
 assets/         images, favicon, social share image
-_private/       screenshots NOT published (client names / account IDs visible)
+_private/       unblurred originals, NOT published (client names / account IDs visible)
 vercel.json / .vercelignore / netlify.toml   deploy settings
 ```
 
@@ -32,7 +32,7 @@ Do not use Netlify drag and drop with this whole folder, because that skips the 
 
 ## Activate the audit form (Formspree)
 
-1. Sign up free at https://formspree.io with aatasamqazi@gmail.com
+1. Sign up free at https://formspree.io with aatasamq@gmail.com
 2. Click "New form", name it "Ad audit requests"
 3. Copy the form endpoint, it looks like `https://formspree.io/f/abcdwxyz`
 4. In `index.html`, find `https://formspree.io/f/YOUR_FORM_ID` and replace it with your endpoint
@@ -42,8 +42,8 @@ Until step 4 is done the form shows a friendly "email me instead" message.
 
 ## Things to replace
 
-- Profile photo: add `assets/profile.jpg` (square, at least 400x400) and swap the placeholder block
-  in the hero (search for `PLACEHOLDER` in `index.html`)
+- Profile photo: `assets/profile.jpg` (480x480 square crop). Replace the file to change it.
 - Testimonials: the three cards marked "Placeholder" in the Client words section
 - Domain: replace every `YOUR-DOMAIN.com` in the `<head>` of `index.html` with your real domain
 - Calendly: set in one place, `CALENDLY_URL` at the top of `script.js`
+- WhatsApp: search `wa.me/923239947520` in `index.html` (4 links, same URL)
