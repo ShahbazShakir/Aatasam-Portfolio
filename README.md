@@ -30,15 +30,11 @@ then visit http://localhost:8000
 everything and deletes `_private/` from the deployed copy.
 Do not use Netlify drag and drop with this whole folder, because that skips the config and would publish `_private/`.
 
-## Activate the audit form (Formspree)
+## Audit form (Formspree)
 
-1. Sign up free at https://formspree.io with aatasamq@gmail.com
-2. Click "New form", name it "Ad audit requests"
-3. Copy the form endpoint, it looks like `https://formspree.io/f/abcdwxyz`
-4. In `index.html`, find `https://formspree.io/f/YOUR_FORM_ID` and replace it with your endpoint
-5. Deploy, submit one test entry, then confirm your email in Formspree when it asks
-
-Until step 4 is done the form shows a friendly "email me instead" message.
+The form posts to `https://formspree.io/f/mkjgybpo` (set in the `action` attribute of `#audit-form`
+in `index.html`). Submissions go to the email on that Formspree form. `script.js` sends it with
+fetch, so visitors stay on the page and see a success or error message.
 
 ## Things to replace
 
