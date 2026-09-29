@@ -168,11 +168,6 @@
       return;
     }
 
-    if (form.action.indexOf("YOUR_FORM_ID") !== -1) {
-      setStatus("This form isn't connected yet. Please email aatasamq@gmail.com for now.", "error");
-      return;
-    }
-
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending...";
     setStatus("");
@@ -185,10 +180,11 @@
       .then(function (res) {
         if (!res.ok) throw new Error("Request failed");
         form.reset();
-        setStatus("Thanks! I'll review your clinic and get back to you soon.", "success");
+        setStatus("Thanks, I'll get back to you within a day.", "success");
       })
       .catch(function () {
-        setStatus("Something went wrong. Please email aatasamq@gmail.com instead.", "error");
+        // Fields are left as typed so the visitor can simply try again
+        setStatus("Sorry, that didn't send. Please try again, or email me at aatasamq@gmail.com.", "error");
       })
       .then(function () {
         submitBtn.disabled = false;
