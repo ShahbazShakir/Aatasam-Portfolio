@@ -217,9 +217,16 @@ p { margin: 0; }
 .journey li:last-child { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 
 /* ---------- Results ---------- */
-.cases { display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 1fr; align-items: stretch; gap: 20px; }
-.cases > .case { height: 100%; transition-delay: 0s !important; }
+.cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.cases > .case { transition-delay: 0s !important; }
 .case { padding: 30px; display: flex; flex-direction: column; }
+/* Each card shares 4 row tracks (header, stats, bullets, screenshots) with the card beside it,
+   so both main screenshots start at the same height and cards with fewer thumbnails keep empty space below */
+@supports (grid-template-rows: subgrid) {
+  .case { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; align-content: start; }
+  .case > * { align-self: start; }
+  .case .proof { margin-top: 0; }
+}
 .case__head { margin-bottom: 22px; }
 .case__tag {
   display: inline-block; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px;
@@ -242,7 +249,7 @@ p { margin: 0; }
   color: var(--accent); margin-left: 4px; vertical-align: super;
 }
 .case__note { font-size: 12.5px; color: var(--faint); margin-top: 14px; font-style: italic; text-align: center; }
-.proof { margin-top: auto; padding-top: 20px; }
+.proof { margin-top: auto; padding-top: 20px; width: 100%; }
 .proof button {
   padding: 0; border: 1px solid var(--border); border-radius: 10px;
   background: #fff; overflow: hidden; position: relative; display: block; width: 100%;
@@ -254,8 +261,9 @@ p { margin: 0; }
 }
 .proof__strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 8px; }
 .proof__main span {
-  display: block; padding: 9px 12px; background: var(--bg); border-top: 1px solid var(--border);
-  font-size: 13px; font-weight: 600; color: var(--text); text-align: left;
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 8px 12px;
+  background: rgba(12, 10, 11, 0.82);
+  font-size: 13px; font-weight: 600; color: #fff; text-align: left;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .proof button:hover img { filter: brightness(0.9); }
