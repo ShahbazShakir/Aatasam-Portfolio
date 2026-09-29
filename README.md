@@ -39,7 +39,6 @@ fetch, so visitors stay on the page and see a success or error message.
 ## Things to replace
 
 - Profile photo: `assets/profile.jpg` (480x480 square crop). Replace the file to change it.
-- Testimonials: the three cards marked "Placeholder" in the Client words section
 - Domain: replace every `YOUR-DOMAIN.com` in the `<head>` of `index.html` with your real domain
 - Calendly: set in one place, `CALENDLY_URL` at the top of `script.js`
 - WhatsApp: search `wa.me/923239947520` in `index.html` (4 links, same URL)
