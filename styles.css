@@ -247,16 +247,24 @@ p { margin: 0; }
   padding: 0; border: 1px solid var(--border); border-radius: 10px;
   background: #fff; overflow: hidden; position: relative; display: block; width: 100%;
 }
-.proof__main img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; object-position: 60% 45%; display: block; transition: transform .4s ease; }
-.proof__main--right img { object-position: right center; }
+/* Every case study screenshot uses the same 16:10 frame; --focus picks which part of a wide screenshot stays in view */
+.proof img {
+  width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: var(--focus, 50% 50%);
+  display: block; transition: filter .25s ease;
+}
 .proof__strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 8px; }
-.proof__strip img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 55% 70%; transition: transform .4s ease, opacity .2s; }
-.proof__main span, .gallery__item span {
+.proof__main span {
+  display: block; padding: 9px 12px; background: var(--bg); border-top: 1px solid var(--border);
+  font-size: 13px; font-weight: 600; color: var(--text); text-align: left;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.proof button:hover img { filter: brightness(0.9); }
+.gallery__item span {
   position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 9px;
   font-size: 13px; font-weight: 600; color: #fff; text-align: left;
   background: linear-gradient(transparent, rgba(12,10,11,0.92));
 }
-.proof button:hover img, .gallery__item:hover img { transform: scale(1.04); }
+.gallery__item:hover img { transform: scale(1.04); }
 
 .more { margin-top: 48px; }
 .more h3 { font-family: var(--font-display); font-weight: 500; font-size: 28px; text-align: center; }
