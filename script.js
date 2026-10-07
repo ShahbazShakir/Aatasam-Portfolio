@@ -51,6 +51,30 @@
     }
   });
 
+  /* ---------- Intro video ---------- */
+  var videoFrame = document.getElementById("intro-video");
+  if (videoFrame) {
+    var video = videoFrame.querySelector("video");
+    var playBtn = videoFrame.querySelector(".video-frame__play");
+    var source = video.querySelector("source");
+    // Native controls stay in the HTML for no-JS visitors; with JS the poster shows one clean play button first
+    video.controls = false;
+    playBtn.addEventListener("click", function () {
+      var p = video.play();
+      if (p && p.catch) p.catch(function () { videoFrame.classList.remove("is-playing"); });
+    });
+    video.addEventListener("play", function () {
+      videoFrame.classList.add("is-playing");
+      video.controls = true;
+    });
+    video.addEventListener("ended", function () { videoFrame.classList.remove("is-playing"); });
+    function showVideoError() { videoFrame.classList.add("is-error"); }
+    video.addEventListener("error", showVideoError);
+    if (source) source.addEventListener("error", showVideoError);
+    // The error may have fired before this script ran (e.g. unsupported format)
+    if (video.error || video.networkState === 3) showVideoError();
+  }
+
   /* ---------- Scroll reveal ---------- */
   var revealEls = document.querySelectorAll(".reveal");
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
